@@ -71,7 +71,8 @@ $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/
 ### Create label
 
 ```bash
-$ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/projects/4/labels/ \
+$ export PROJECT_ID=4  # set your project id from previous query
+$ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/projects/${PROJECT_ID}/labels/ \
     -XPOST -H "Content-Type: application/json" \
     -d '{"name": "label name"}'
 ```
@@ -93,7 +94,8 @@ $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/
 When you want to upload file named `w.png` you will post it like that:
 
 ```bash
-$ curl -H "Authorization: Token ${AUTH_TOKEN}" -XPOST https://perfectlabel.io/api/v001/projects/4/labels/1/fragments/ -F img_original=@w.png
+$ export LABEL_ID=1  # set your LABEL_ID from previous query
+$ curl -H "Authorization: Token ${AUTH_TOKEN}" -XPOST https://perfectlabel.io/api/v001/projects/${PROJECT_ID}/labels/${LABEL_ID}/fragments/ -F img_original=@w.png
 ```
 
 ```javascript
@@ -122,7 +124,7 @@ $ curl -H "Authorization: Token ${AUTH_TOKEN}" -XPOST https://perfectlabel.io/ap
 ### Stitching fragments
 
 ```bash
-$ curl -H "Authorization: Token ${AUTH_TOKEN}" -XPOST https://perfectlabel.io/api/v001/projects/4/labels/1/stitch/
+$ curl -H "Authorization: Token ${AUTH_TOKEN}" -XPOST https://perfectlabel.io/api/v001/projects/${PROJECT_ID}/labels/${LABEL_ID}/stitch/
 ```
 
 ```javascript
