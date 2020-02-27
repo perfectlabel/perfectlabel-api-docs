@@ -74,13 +74,13 @@ $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/
 $ export PROJECT_ID=4  # set your project id from previous query
 $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/projects/${PROJECT_ID}/labels/ \
     -XPOST -H "Content-Type: application/json" \
-    -d '{"name": "label name"}'
+    -d '{"pos_id": "label name"}'
 ```
 
 ```javascript
 { 
    "updated":"2020-01-22T12:41:35.914052Z",
-   "pos_id":"",
+   "pos_id":"label name"',
    "id":1,
    "description":"",
    "status":"waiting_for_pictures",
@@ -88,6 +88,8 @@ $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/
    "created":"2020-01-22T12:41:35.914015Z"
 }
 ```
+
+**NOTE**: you can omit `pos_id`
 
 ### Upload fragment
 
