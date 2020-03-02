@@ -80,7 +80,7 @@ $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/
 ```javascript
 { 
    "updated":"2020-01-22T12:41:35.914052Z",
-   "pos_id":"label name"',
+   "pos_id":"label unique identifier"',
    "id":1,
    "description":"",
    "status":"waiting_for_pictures",
