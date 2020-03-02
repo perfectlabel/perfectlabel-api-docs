@@ -74,7 +74,7 @@ $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/
 $ export PROJECT_ID=4  # set your project id from previous query
 $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/projects/${PROJECT_ID}/labels/ \
     -XPOST -H "Content-Type: application/json" \
-    -d '{"pos_id": "label name"}'
+    -d '{"pos_id": "label unique identifier"}'
 ```
 
 ```javascript
