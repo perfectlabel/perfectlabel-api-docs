@@ -14,7 +14,7 @@ $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/
 {"count":0,"next":null,"previous":null,"results":[]}
 ```
 
-## Simple unwrap API.
+## Simple Unwrap API.
 
 Simple unwrap API takes an image as "img_original" parameter, and returns it unwrapped.
 
@@ -73,7 +73,7 @@ $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/
 ```
 
 ### Update Project
-To update project parameters, use "PATCH" requests.
+To update project parameters, use "PATCH" request:
 
 ```bash
 $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/projects/4/ \
@@ -85,7 +85,7 @@ $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/
 {"id":4,"my_role":"admin","name":"project name"}
 ```
 
-### Create label
+### Create Label
 Create a new label inside project using the following API.
 
 ```bash
@@ -142,7 +142,7 @@ $ curl -H "Authorization: Token ${AUTH_TOKEN}" -XPOST https://perfectlabel.io/ap
 ```
 The example above will take a picture of the bottle, saves as "w.png", upload it to the server, detect label, and unwrap it automatically.
 
-### Stitching fragments
+### Stitch Fragments
 
 Once all the fragments uploaded, use the following API to stitch them:
 
