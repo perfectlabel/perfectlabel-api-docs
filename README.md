@@ -1,8 +1,9 @@
-# Perfectlabel Api
-You need to get authorization token first.
+# Perfect Label REST API docs
+The repo describes Perfect Label unwrapping/stitching REST API documentation.
 
-When you get it you can check that it is working by:
+Before starting working with the API, it's required to contact Perfect Label support and get an authentication token (please email support@perfectlabel.io to request it).
 
+To check authorization, use any endpoint (the sample below uses list projects endpoint) with the proper authorization header:
 ```bash
 $ export AUTH_TOKEN=<YOUR_TOKEN_HERE>
 $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/projects/
@@ -13,16 +14,9 @@ $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/
 {"count":0,"next":null,"previous":null,"results":[]}
 ```
 
-If you don't get correct responses, verify that you've passed correct token by:
-
-```bash
-echo $AUTH_TOKEN
-```
-
-
 ### Simple unwrap API.
 
-If you don't want to stitch several images together, you don't need projects and labels API's and can go with simple unwrap API.
+Simple unwrap API takes an image as "img_original" parameter, and returns it unwrapped.
 
 
 ```bash
@@ -53,7 +47,10 @@ $ curl -H "Authorization: Token ${AUTH_TOKEN}" -XPOST https://perfectlabel.io/ap
 }
 ```
 
-
+## Stitching
+For stitching functionality, it's required to create labels, and add fragments to it. Labels must be created in a given project.
+User will have a default project created automatically (use list projects API to get your default project id).
+To create a new project, use the following API.
 
 ### Create project
 
