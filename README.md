@@ -1,4 +1,4 @@
-# Perfect Label REST API docs
+# Perfect Label REST API Docs
 The repo describes Perfect Label unwrapping/stitching REST API documentation.
 
 Before starting working with the API, it's required to contact Perfect Label support team and get an authentication token (please email support@perfectlabel.io to request it).
@@ -14,7 +14,7 @@ $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/
 {"count":0,"next":null,"previous":null,"results":[]}
 ```
 
-## Simple Unwrap API.
+## Simple Unwrap API
 
 Simple unwrap API takes an image as "img_original" parameter, and returns it unwrapped.
 
