@@ -58,9 +58,9 @@ $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/
 
 ```
 
-To create a new project, use the following API.
 
 ### Create Project
+To create a new project, use the following API.
 
 ```bash
 $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/projects/ \
