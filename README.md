@@ -1,9 +1,9 @@
 # Perfect Label REST API docs
 The repo describes Perfect Label unwrapping/stitching REST API documentation.
 
-Before starting working with the API, it's required to contact Perfect Label support and get an authentication token (please email support@perfectlabel.io to request it).
+Before starting working with the API, it's required to contact Perfect Label support team and get an authentication token (please email support@perfectlabel.io to request it).
 
-To check authorization, use any endpoint (the sample below uses list projects endpoint) with the proper authorization header:
+To test authorization, use any endpoint (the sample below uses list projects endpoint) with the proper authorization header:
 ```bash
 $ export AUTH_TOKEN=<YOUR_TOKEN_HERE>
 $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/projects/
@@ -14,7 +14,7 @@ $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/
 {"count":0,"next":null,"previous":null,"results":[]}
 ```
 
-### Simple unwrap API.
+## Simple unwrap API.
 
 Simple unwrap API takes an image as "img_original" parameter, and returns it unwrapped.
 
@@ -50,9 +50,17 @@ $ curl -H "Authorization: Token ${AUTH_TOKEN}" -XPOST https://perfectlabel.io/ap
 ## Stitching
 For stitching functionality, it's required to create labels, and add fragments to it. Labels must be created in a given project.
 User will have a default project created automatically (use list projects API to get your default project id).
+
+### List Projects
+```bash
+$ export AUTH_TOKEN=<YOUR_TOKEN_HERE>
+$ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/projects/
+
+```
+
 To create a new project, use the following API.
 
-### Create project
+### Create Project
 
 ```bash
 $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/projects/ \
@@ -64,8 +72,21 @@ $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/
 {"id":4,"my_role":"admin","name":"project name"}
 ```
 
+### Update Project
+To update project parameters, use "PATCH" requests.
+
+```bash
+$ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/projects/4/ \
+    -XPATCH -H "Content-Type: application/json" \
+    -d '{"name": "project name"}'
+```
+
+```javascript
+{"id":4,"my_role":"admin","name":"project name"}
+```
 
 ### Create label
+Create a new label inside project using the following API.
 
 ```bash
 $ export PROJECT_ID=4  # set your project id from previous query
@@ -88,9 +109,9 @@ $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/
 
 **NOTE**: you can omit `pos_id`
 
-### Upload fragment
+### Add Fragment
 
-When you want to upload file named `w.png` you will post it like that:
+To add fragments to the given label, use the following API:
 
 ```bash
 $ export LABEL_ID=1  # set your LABEL_ID from previous query
@@ -119,8 +140,11 @@ $ curl -H "Authorization: Token ${AUTH_TOKEN}" -XPOST https://perfectlabel.io/ap
    "created":"2020-01-22T12:44:31.721855Z"
 }
 ```
+The example above will take a picture of the bottle, saves as "w.png", upload it to the server, detect label, and unwrap it automatically.
 
 ### Stitching fragments
+
+Once all the fragments uploaded, use the following API to stitch them:
 
 ```bash
 $ curl -H "Authorization: Token ${AUTH_TOKEN}" -XPOST https://perfectlabel.io/api/v001/projects/${PROJECT_ID}/labels/${LABEL_ID}/stitch/
