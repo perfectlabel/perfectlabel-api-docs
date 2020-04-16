@@ -168,10 +168,3 @@ $ curl -H "Authorization: Token ${AUTH_TOKEN}" -XPOST https://perfectlabel.io/ap
 }
 ```
 
-## Other
-
-```bash
-export AWS_ACCESS_KEY_ID=$AWS_DATASET_KEY
-export AWS_SECRET_ACCESS_KEY=$AWS_DATASET_SECRET
-```
-
