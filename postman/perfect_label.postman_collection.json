@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "af95bdd4-c9b7-49a2-9abb-9ef4ee64965a",
+		"_postman_id": "42f18299-9bd0-4522-9af8-5fce942ba2df",
 		"name": "Perfect Label",
 		"description": "Each of the requests has a detailed description. \n\nNote: The sequence of loading fragments is very important! You must load the fragments so that each subsequent photo is a continuation on the right. Otherwise, the system will not be able to stitch the fragments!\n\nIf you accidentally uploaded fragment or fragments in the wrong order then please create a new label (perform \"Create label\" request) and upload fragments in the correct order",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -61,7 +61,7 @@
 						{
 							"key": "img_original",
 							"type": "file",
-							"src": "/C:/Users/vlads/Downloads/Paint shop/IMG_20200219_171531.jpg"
+							"src": "/home/alex/Projects/perfectlabel-api/postman/samples/1.jpg"
 						}
 					]
 				},
@@ -78,8 +78,7 @@
 						"fragments",
 						""
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -215,7 +214,7 @@
 						{
 							"key": "img_original",
 							"type": "file",
-							"src": []
+							"src": "/home/alex/Projects/perfectlabel-api/postman/samples/1.jpg"
 						}
 					]
 				},
@@ -258,7 +257,7 @@
 						{
 							"key": "img_original",
 							"type": "file",
-							"src": []
+							"src": "/home/alex/Projects/perfectlabel-api/postman/samples/2.jpg"
 						}
 					]
 				},
@@ -301,7 +300,7 @@
 						{
 							"key": "img_original",
 							"type": "file",
-							"src": []
+							"src": "/home/alex/Projects/perfectlabel-api/postman/samples/3.jpg"
 						}
 					]
 				},
@@ -324,92 +323,6 @@
 					]
 				},
 				"description": "Note: The sequence of loading fragments is very important! You must load the fragments so that each subsequent photo is a continuation on the right. Otherwise, the system will not be able to stitch the fragments!"
-			},
-			"response": []
-		},
-		{
-			"name": "Upload fragment 4",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"type": "text",
-						"value": "Token {{AUTH_TOKEN}}"
-					}
-				],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "img_original",
-							"type": "file",
-							"src": []
-						}
-					]
-				},
-				"url": {
-					"raw": "https://perfectlabel.io/api/v001/projects/{{project_id}}/labels/{{label_id}}/fragments/",
-					"protocol": "https",
-					"host": [
-						"perfectlabel",
-						"io"
-					],
-					"path": [
-						"api",
-						"v001",
-						"projects",
-						"{{project_id}}",
-						"labels",
-						"{{label_id}}",
-						"fragments",
-						""
-					]
-				},
-				"description": "Note: The sequence of loading fragments is very important! Please upload photos from the left to the right, otherwise the stitching will fail"
-			},
-			"response": []
-		},
-		{
-			"name": "Upload fragment 5",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"type": "text",
-						"value": "Token {{AUTH_TOKEN}}"
-					}
-				],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "img_original",
-							"type": "file",
-							"src": []
-						}
-					]
-				},
-				"url": {
-					"raw": "https://perfectlabel.io/api/v001/projects/{{project_id}}/labels/{{label_id}}/fragments/",
-					"protocol": "https",
-					"host": [
-						"perfectlabel",
-						"io"
-					],
-					"path": [
-						"api",
-						"v001",
-						"projects",
-						"{{project_id}}",
-						"labels",
-						"{{label_id}}",
-						"fragments",
-						""
-					]
-				},
-				"description": "Note: The sequence of loading fragments is very important! Please upload photos from the left to the right, otherwise the stitching will fail"
 			},
 			"response": []
 		},
@@ -453,8 +366,7 @@
 						"stitch",
 						""
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		}
@@ -480,6 +392,5 @@
 				]
 			}
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
