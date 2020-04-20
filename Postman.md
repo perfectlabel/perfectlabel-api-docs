@@ -10,12 +10,12 @@ Before starting working with the API, it's required to contact Perfect Label sup
 
 ### Import postman collection
 * Click the "Import" button in the top left corner. ![Screenshot](/screenshots/postman-1.png)
-* Click the "Choose Files" button, select the "perfectlabel.postman_collection.json" file from the postman folder and click the "Open" button. ![Screenshot]((https://share.getcloudapp.com/OAurPL68)
+* Click the "Choose Files" button, select the "perfectlabel.postman_collection.json" file from the postman folder and click the "Open" button.
 
 Add a new environment:
 * Click a wheel button in the top right corner
-* Click "Import" button in the "Manage Environments" window !![Screenshot](https://share.getcloudapp.com/Z4u5ow2Z)
-* Click the "Choose Files" button ![Screenshot](https://share.getcloudapp.com/jkuKLnpg), select the "perfectlabel.postman_environment.json" file from the postman folder and click the "Open" button ![Screenshot](https://share.getcloudapp.com/2NuBwrQ6)
+* Click "Import" button in the "Manage Environments" window !![Screenshot](/screenshots/postman-2.png)
+* Click the "Choose Files" button, select the "perfectlabel.postman_environment.json" file from the postman folder and click the "Open" button
 * Set your AUTH_TOKEN
 * Close the "Manage Environments" window
 
