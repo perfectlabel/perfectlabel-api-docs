@@ -12,7 +12,7 @@ Before starting working with the API, it's required to contact Perfect Label sup
 * Click the "Import" button in the top left corner. ![Screenshot](/screenshots/postman-1.png)
 * Click the "Choose Files" button, select the "perfectlabel.postman_collection.json" file from the postman folder and click the "Open" button.
 
-### Setup an environment environment
+### Setup an environment
 * Click a wheel button in the top right corner
 * Click "Import" button in the "Manage Environments" window ![Screenshot](/screenshots/postman-2.png)
 * Click the "Choose Files" button, select the "perfectlabel.postman_environment.json" file from the postman folder and click the "Open" button
@@ -24,7 +24,6 @@ Before starting working with the API, it's required to contact Perfect Label sup
 ### Check Installation
 * Select the "Check that the token is correct" request
 * Click the "Send" button
-
 
 ## Simple Unwrap API
 
