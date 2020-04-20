@@ -49,3 +49,4 @@ Please go through the related methods in Postman project, and execute all steps.
 Please make sure to select the correct files, when uploading label fragments, and
 keep the in proper order (from left to the right), otherwise stitching will fail
 with error.
+There are sample images provided in "postman/samples" directory.
