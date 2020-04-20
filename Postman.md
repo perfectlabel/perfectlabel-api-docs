@@ -36,6 +36,8 @@ That API is simple to use, and is useful, when it's required only to unwrap labe
 3. Click "Send"
 4. Find "img_unwrapped.full_url" attribute of the response
 
+![Screenshot](/screenshots/postman-6.png)
+
 ### Unwrap and stitch
 
 For image stitching, it's a bit more complicated.
