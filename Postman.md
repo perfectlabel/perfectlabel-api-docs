@@ -8,7 +8,8 @@ Before starting working with the API, it's required to contact Perfect Label sup
 
 1. Please make sure Postman installed https://www.postman.com/
 
-Import postman collection.
+Import postman collection
+
 2. Click the "Import" button in the top left corner. ![Screenshot](/screenshots/postman-1.png)
 3. Click the "Choose Files" button, select the "perfectlabel.postman_collection.json" file from the postman folder and click the "Open" button. ![Screenshot]((https://share.getcloudapp.com/OAurPL68)
 
