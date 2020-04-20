@@ -1,0 +1,485 @@
+{
+	"info": {
+		"_postman_id": "af95bdd4-c9b7-49a2-9abb-9ef4ee64965a",
+		"name": "Perfect Label",
+		"description": "Each of the requests has a detailed description. \n\nNote: The sequence of loading fragments is very important! You must load the fragments so that each subsequent photo is a continuation on the right. Otherwise, the system will not be able to stitch the fragments!\n\nIf you accidentally uploaded fragment or fragments in the wrong order then please create a new label (perform \"Create label\" request) and upload fragments in the correct order",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Check that the token is correct",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{AUTH_TOKEN}}"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://perfectlabel.io/api/v001/projects/",
+					"protocol": "https",
+					"host": [
+						"perfectlabel",
+						"io"
+					],
+					"path": [
+						"api",
+						"v001",
+						"projects",
+						""
+					]
+				},
+				"description": "You need to get the authorization token first.\r\nReplace the token in this request with the one that was sent to you.\r\nTo do this please follow the steps below: \r\n1. Click the gear wheel button\r\n2. Click the \"perfect_label environment\" string\r\n3. Paste the previously received token in the \"CURRENT VALUE\" column of AUTH_TOKEN row \r\n4. Click the \"Update\" button\r\n\r\nPlease follow the links below to make sure you do everything correct\r\nhttps://share.getcloudapp.com/JruW1eZd\r\nhttps://share.getcloudapp.com/JruW4NyY\r\n\r\nAfter performing the actions above you can check your token. To do it please follow the steps below:\r\n\r\n1. Select the \"Check that the token is correct\" request\r\n2. Click the \"Send\" button"
+			},
+			"response": []
+		},
+		{
+			"name": "Simple unwrap API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{AUTH_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "img_original",
+							"type": "file",
+							"src": "/C:/Users/vlads/Downloads/Paint shop/IMG_20200219_171531.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://perfectlabel.io/api/v001/fragments/",
+					"protocol": "https",
+					"host": [
+						"perfectlabel",
+						"io"
+					],
+					"path": [
+						"api",
+						"v001",
+						"fragments",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create project",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ca25b10c-0cb7-4971-92f6-00fd1897dfde",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"project_id\", jsonData.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{AUTH_TOKEN}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"New project\"}"
+				},
+				"url": {
+					"raw": "https://perfectlabel.io/api/v001/projects/",
+					"protocol": "https",
+					"host": [
+						"perfectlabel",
+						"io"
+					],
+					"path": [
+						"api",
+						"v001",
+						"projects",
+						""
+					]
+				},
+				"description": "If you want to stitch several images into one label you need to create a new project first. \nTo create it please follow the steps below:\n\n1. Select the \"Create project\" request\n2. Click the \"Send\" button\nThe new project will be called \" New project\". \n\nTo create a project with a different name please follow the steps below:\n\n1. Select the \"Create project\" request\n2. Click the \"Body\" tab \n3. Replace the \"New project\" with the name you need\n4. Click the \"Send\" button \n\nYou can follow the link below to make sure that you are doing everything correctly\n\nhttps://share.getcloudapp.com/6quBQww7"
+			},
+			"response": []
+		},
+		{
+			"name": "Create label",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "3a1340e0-9e12-4272-8e68-2476fc2d0e46",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "8b51e8b8-a983-48a8-a221-7dc1966a267f",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"label_id\", jsonData.id);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{AUTH_TOKEN}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://perfectlabel.io/api/v001/projects/{{project_id}}/labels/",
+					"protocol": "https",
+					"host": [
+						"perfectlabel",
+						"io"
+					],
+					"path": [
+						"api",
+						"v001",
+						"projects",
+						"{{project_id}}",
+						"labels",
+						""
+					]
+				},
+				"description": "Also, you need to create a new label. Just click the \"Send\" button and a new label will be created "
+			},
+			"response": []
+		},
+		{
+			"name": "Upload fragment 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Token {{AUTH_TOKEN}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "img_original",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "https://perfectlabel.io/api/v001/projects/{{project_id}}/labels/{{label_id}}/fragments/",
+					"protocol": "https",
+					"host": [
+						"perfectlabel",
+						"io"
+					],
+					"path": [
+						"api",
+						"v001",
+						"projects",
+						"{{project_id}}",
+						"labels",
+						"{{label_id}}",
+						"fragments",
+						""
+					]
+				},
+				"description": "If you need to stitch several fragments you need to upload them to the label. This request will help you to do it. A fragment will be upload to the last created project and the last created label. You can stich from two to ten fragments, but there are some limitations. If your photos have a size from 2 MB to 4 MB, it is optimal to stitch no more 5 fragments. If your photos are up to 1 MB you can stitch 10 fragments.\n\nTo upload the first fragment please follow the steps below:\n1. Click the \"Body\" tab\n2. Click the \"Select Files\" button in the Value column\n3. Select the image you want to unwrap on your local PC\n4. Click the \"Send\" button to send the request\n \nYou can follow the link below to make sure that you are doing everything correctly\nhttps://share.getcloudapp.com/lluy5vlE\nhttps://share.getcloudapp.com/12u1A6Zd\n\n\nThe same actions should be performed for the following fragments.\n\nNote: The sequence of loading fragments is very important! You must load the fragments so that each subsequent photo is a continuation on the right. Otherwise, the system will not be able to stitch the fragments!"
+			},
+			"response": []
+		},
+		{
+			"name": "Upload fragment 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Token {{AUTH_TOKEN}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "img_original",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "https://perfectlabel.io/api/v001/projects/{{project_id}}/labels/{{label_id}}/fragments/",
+					"protocol": "https",
+					"host": [
+						"perfectlabel",
+						"io"
+					],
+					"path": [
+						"api",
+						"v001",
+						"projects",
+						"{{project_id}}",
+						"labels",
+						"{{label_id}}",
+						"fragments",
+						""
+					]
+				},
+				"description": "Note: The sequence of loading fragments is very important! You must load the fragments so that each subsequent photo is a continuation on the right. Otherwise, the system will not be able to stitch the fragments!"
+			},
+			"response": []
+		},
+		{
+			"name": "Upload fragment 3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Token {{AUTH_TOKEN}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "img_original",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "https://perfectlabel.io/api/v001/projects/{{project_id}}/labels/{{label_id}}/fragments/",
+					"protocol": "https",
+					"host": [
+						"perfectlabel",
+						"io"
+					],
+					"path": [
+						"api",
+						"v001",
+						"projects",
+						"{{project_id}}",
+						"labels",
+						"{{label_id}}",
+						"fragments",
+						""
+					]
+				},
+				"description": "Note: The sequence of loading fragments is very important! You must load the fragments so that each subsequent photo is a continuation on the right. Otherwise, the system will not be able to stitch the fragments!"
+			},
+			"response": []
+		},
+		{
+			"name": "Upload fragment 4",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Token {{AUTH_TOKEN}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "img_original",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "https://perfectlabel.io/api/v001/projects/{{project_id}}/labels/{{label_id}}/fragments/",
+					"protocol": "https",
+					"host": [
+						"perfectlabel",
+						"io"
+					],
+					"path": [
+						"api",
+						"v001",
+						"projects",
+						"{{project_id}}",
+						"labels",
+						"{{label_id}}",
+						"fragments",
+						""
+					]
+				},
+				"description": "Note: The sequence of loading fragments is very important! Please upload photos from the left to the right, otherwise the stitching will fail"
+			},
+			"response": []
+		},
+		{
+			"name": "Upload fragment 5",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Token {{AUTH_TOKEN}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "img_original",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "https://perfectlabel.io/api/v001/projects/{{project_id}}/labels/{{label_id}}/fragments/",
+					"protocol": "https",
+					"host": [
+						"perfectlabel",
+						"io"
+					],
+					"path": [
+						"api",
+						"v001",
+						"projects",
+						"{{project_id}}",
+						"labels",
+						"{{label_id}}",
+						"fragments",
+						""
+					]
+				},
+				"description": "Note: The sequence of loading fragments is very important! Please upload photos from the left to the right, otherwise the stitching will fail"
+			},
+			"response": []
+		},
+		{
+			"name": "Stitching fragments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4bc3cd54-f0c2-4fbe-b76c-16e78ca2b788",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Token {{AUTH_TOKEN}}"
+					}
+				],
+				"url": {
+					"raw": "https://perfectlabel.io/api/v001/projects/{{project_id}}/labels/{{label_id}}/stitch/",
+					"protocol": "https",
+					"host": [
+						"perfectlabel",
+						"io"
+					],
+					"path": [
+						"api",
+						"v001",
+						"projects",
+						"{{project_id}}",
+						"labels",
+						"{{label_id}}",
+						"stitch",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f551f8e1-cfb7-431a-9288-b325210ca414",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "058317b5-1564-4e1f-a8cc-5ba5c9a60ef9",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
