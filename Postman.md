@@ -2,7 +2,7 @@
 # Perfect Label and Postman
 This document descirbes how to try the API using Postman
 
-Before starting working with the API, it's required to contact Perfect Label support team and get an authentication token (please email support@perfectlabel.io to request it).
+Before starting to work with the API, it's required to contact Perfect Label support team and get an authentication token (please email support@perfectlabel.io to request it).
 
 ## Setting Up Postman
 
