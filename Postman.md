@@ -10,12 +10,12 @@ Before starting to work with the API, it's required to contact Perfect Label sup
 
 ### Import Postman Collection
 * Click the "Import" button in the top left corner. ![Screenshot](/screenshots/postman-1.png)
-* Click the "Choose Files" button, select the "perfectlabel.postman_collection.json" file from the postman folder and click the "Open" button.
+* Click the "Choose Files" button, select the "perfectlabel.postman_collection.json" file from "postman" folder in this repository and click "Open" button.
 
 ### Setup an Environment
 * Click a wheel button in the top right corner
 * Click "Import" button in the "Manage Environments" window ![Screenshot](/screenshots/postman-2.png)
-* Click the "Choose Files" button, select the "perfectlabel.postman_environment.json" file from the postman folder and click the "Open" button
+* Click the "Choose Files" button, select the "perfectlabel.postman_environment.json" file and click "Open" button
 * Click the newly imported environment ![Screenshot](/screenshots/postman-3.png)
 * Set your AUTH_TOKEN value ![Screenshot](/screenshots/postman-4.png)
 * Click UPDATE button and close the "Manage Environments" window
@@ -47,8 +47,8 @@ For image stitching, it's a bit more complicated.
 3. Upload label fragments
 4. Execute "stitch" request
 
-Please go through the related methods in Postman project, and execute all steps.
+Please go through the related methods in Postman project, and execute all the steps.
 Please make sure to select the correct files, when uploading label fragments, and
-keep the in proper order (from left to the right), otherwise stitching will fail
+keep them in proper order (from left to the right), otherwise stitching will fail
 with error.
 There are sample images provided in "postman/samples" directory.
