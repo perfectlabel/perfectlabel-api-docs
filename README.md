@@ -1,5 +1,5 @@
 # Perfect Label REST API Docs
-The repo describes Perfect Label unwrapping/stitching REST API documentation.
+The repo describes [Perfect Label](https://perfectlabel.io) unwrapping/stitching REST API documentation.
 
 Before starting working with the API, it's required to contact Perfect Label support team and get an authentication token (please email support@perfectlabel.io to request it).
 
