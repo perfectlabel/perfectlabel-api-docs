@@ -46,14 +46,14 @@ the bottom along the visible line:
 ![Bottom Cropped Unwrapped](./PicturesGuideSamples/bottom-crop-unwrapped.jpg)
 
 ### Too Large Image
-It's not really an issue, but it will increase the latency pretty much. Usually there
-is no need to use images larger than 1024x1024.
+It's not necessarily an issue, but obviously larger images take longer to upload and process.
+Usually there is no need to use images wider than 1024 pixels.
 
 ### Too Small Label
 Another mistake - the label can be too small in the picture. It's recommended the label
-consumes about 2/3 of image size. 
+consumes at least 2/3 of image size. 
 
-## Bottom Line
+### Interactive Preview
 What to do, if labels come from regular users, that cannot be educated in advance? In that case,
 it’s good to show a helper pattern, that will assist users to align the camera:
 
