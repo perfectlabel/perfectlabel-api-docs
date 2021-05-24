@@ -1,8 +1,6 @@
 # Pictures Guide
 It’s very important to take pictures properly to get the best 
 unwrapping results.
-Before digging in more details, let's discuss how unwrap 
-works in general.
 Here is an optimal picture of the label - it consumes 
 the major part of the image, meanwhile neither label,
 nor left and right sides of the bottle are cropped.
