@@ -5,7 +5,7 @@ Before digging in more details, let's discuss how unwrap
 works in general.
 Here is an optimal picture of the label - it consumes 
 the major part of the image, meanwhile neither label,
-nor bottles left and right sides are cropped.
+nor left and right sides of the bottle are cropped.
 
 ![Original](./PicturesGuideSamples/original.jpg)
 
@@ -21,25 +21,41 @@ to get a nice flat label, like in the picture below:
 
 ![Original Unwrapped](./PicturesGuideSamples/original-unwrapped.jpg)
 
-# Common Mistakes
-
-One of the most common mistakes - the label region is not fully visible 
-on the picture. Let’s take  look into an example, where an edge of the 
-bottle is cropped:
-
+## Common Mistakes
+### Cropping Bottle Edge
+One of the most common mistakes - cropping a side of the bottle.
 ![Left Cropped](./PicturesGuideSamples/left-crop.jpg)
 
 Despite the left top edge of the label presents in the picture, 
-the left side of the bottle is cropped, so the surface geometry 
-will be distorted:
+it's not enough for proper geometry detection, which requires the entire width of 
+the bottle to be visible.
 
-![Left Cropped Unwrapped](./PicturesGuideSamples/left-crop.jpg)
-
-Despite the unwrapped image being close to the correct image, 
-we can still observe a trapezoidal distortion in the left side 
-of the image.
-
-The picture below is cropped at the bottom (see point “E”). 
 ![Left Cropped Unwrapped](./PicturesGuideSamples/left-crop-unwrapped.jpg)
 
+The unwrapped image is close to the correct image, 
+but we can still observe a trapezoidal distortion in the left side 
+of the image.
+
+### Cropping Top/Bottom Edge
+The picture below is cropped at the bottom (see point “E”). 
+![Bottom Cropped](./PicturesGuideSamples/bottom-crop.jpg)
+
+Despite the geometry is generally correct, the unwrapped label is cropped at
+the bottom along the visible line:
+![Bottom Cropped Unwrapped](./PicturesGuideSamples/bottom-crop-unwrapped.jpg)
+
+### Too Large Image
+It's not really an issue, but it will increase the latency pretty much. Usually there
+is no need to use images larger than 1024x1024.
+
+### Too Small Label
+Another mistake - the label can be too small in the picture. It's recommended the label
+consumes about 2/3 of image size. 
+
+## Bottom Line
+What to do, if labels come from regular users, that cannot be educated in advance? In that case,
+it’s good to show a helper pattern, that will assist users to align the camera:
+![Pattern](./PicturesGuideSamples/pattern.png)
+
+![With Pattern](./PicturesGuideSamples/with-pattern.jpg)
 
