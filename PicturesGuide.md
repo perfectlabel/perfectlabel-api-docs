@@ -24,6 +24,7 @@ to get a nice flat label, like in the picture below:
 ## Common Mistakes
 ### Cropping Bottle Edge
 One of the most common mistakes - cropping a side of the bottle.
+
 ![Left Cropped](./PicturesGuideSamples/left-crop.jpg)
 
 Despite the left top edge of the label presents in the picture, 
@@ -37,11 +38,13 @@ but we can still observe a trapezoidal distortion in the left side
 of the image.
 
 ### Cropping Top/Bottom Edge
-The picture below is cropped at the bottom (see point “E”). 
+The picture below is cropped at the bottom (see point “E”).
+
 ![Bottom Cropped](./PicturesGuideSamples/bottom-crop.jpg)
 
 Despite the geometry is generally correct, the unwrapped label is cropped at
 the bottom along the visible line:
+
 ![Bottom Cropped Unwrapped](./PicturesGuideSamples/bottom-crop-unwrapped.jpg)
 
 ### Too Large Image
@@ -55,6 +58,7 @@ consumes about 2/3 of image size.
 ## Bottom Line
 What to do, if labels come from regular users, that cannot be educated in advance? In that case,
 it’s good to show a helper pattern, that will assist users to align the camera:
+
 ![Pattern](./PicturesGuideSamples/pattern.png)
 
 ![With Pattern](./PicturesGuideSamples/with-pattern.jpg)
