@@ -51,7 +51,9 @@ Usually there is no need to use images wider than 1024 pixels.
 
 ### Too Small Label
 Another mistake - the label can be too small in the picture. It's recommended the label
-consumes at least 2/3 of image size. 
+consumes at least 2/3 of image size.
+
+![Too Small](./PicturesGuideSamples/too-small.jpg)
 
 ### Interactive Preview
 What to do, if labels come from regular users, that cannot be educated in advance? In that case,
