@@ -109,12 +109,27 @@ $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/
 
 **NOTE**: you can omit `pos_id`
 
-### Add Fragment
+### List Project Labels
+List labels of the project, the available label fields: id, status
 
+```bash
+$ export PROJECT_ID=4
+$ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/projects/${PROJECT_ID}/labels/?label_fields=id,status,created,stitched_image&image_fields=id,full_url
+```
+
+### Get Label
+Get label information, the available label fields: id, status
+```bash
+$ export PROJECT_ID=4
+$ export LABEL_ID=11 
+$ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/projects/${PROJECT_ID}/labels/${LABEL_ID}/?label_fields=id,status,created,stitched_image&image_fields=id,full_url
+```
+
+### Add Fragment
 To add fragments to the given label, use the following API:
 
 ```bash
-$ export LABEL_ID=1  # set your LABEL_ID from previous query
+$ export LABEL_ID=11
 $ curl -H "Authorization: Token ${AUTH_TOKEN}" -XPOST https://perfectlabel.io/api/v001/projects/${PROJECT_ID}/labels/${LABEL_ID}/fragments/ -F img_original=@w.png
 ```
 
@@ -168,3 +183,28 @@ $ curl -H "Authorization: Token ${AUTH_TOKEN}" -XPOST https://perfectlabel.io/ap
 }
 ```
 
+### List Fragments
+List fragments of the label
+
+https://perfectlabel.io/api/v001/projects/${PROJECT_ID}/labels/${LABEL_ID}/fragments/?fragment_fields=id,created,img_original,img_unwrapped&image_fields=id,full_url
+```javascript
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "created": "2020-04-02T11:05:47.720523Z",
+            "id": 516,
+            "img_original": {
+                "full_url": "https://perfect-label-uploads.s3.amazonaws.com/images/6d35d25b-22ce-45a5-aa87-fea59a73a2c6.jpg",
+                "id": 1076
+            },
+            "img_unwrapped": {
+                "full_url": "https://perfect-label-uploads.s3.amazonaws.com/images/5bd9c8e2-d0ef-41e6-ad61-4f3adf88d330.jpg",
+                "id": 1077
+            }
+        }
+    ]
+}
+```
