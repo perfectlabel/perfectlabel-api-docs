@@ -8,14 +8,19 @@ retrieve the following information:
 
 ## Manage Products
 For reverse image search among products, it's required to add their front images
-to the current project first.
+to the current project.
 
 ### Add Products 
 
-#### Pass base64-encoded image
-* Encode content of JPEG image as base64, and pass it as `img_original_base64` parameter
-* Pass `data` parameter with JSON, containing the information you want to get returned, if the product
-was found by the search API. Usually it's the ID of the product in your database.
+Products have two parameters - an image, and a meta data dict, containing the information
+to be returned, if the product was found by the search API.
+Usually it's the external id (the id of the product in your database), but can be some additional
+information, like product name.
+
+#### Create by passing base64-encoded image
+Parameters:
+* `img_original_base64` (string) - base64-encoded content of a JPEG file
+* `data` (dict) - meta data
 ```bash
 $ export AUTH_TOKEN=<YOUR_TOKEN_HERE>
 $ export PROJECT_ID=<YOUR_PROJECT_ID>
@@ -35,16 +40,45 @@ Response:
         "product_name": "Koval Winery Cabernet Sauvignon 2018"
     },
     "img_original": {
-      "thumb_url": "",
+      "id": 661,
       "created": "2021-12-18T01:18:39.837331Z",
       "updated": "2021-12-18T01:18:39.851924Z",
       "full_url": "https://perfect-label-uploads.s3.amazonaws.com/images/78d75b31-40f0-406f-8283-2afc065fbbd1.jpg",
-      "id": 661
     }
 }
 ```
 
-The api will return a created project
+#### Pass image as URL
+Parameters:
+* `img_original_url` (string) - image URL
+* `data` (dict) - meta data
+```bash
+$ export AUTH_TOKEN=<YOUR_TOKEN_HERE>
+$ export PROJECT_ID=<YOUR_PROJECT_ID>
+$ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/projects/${PROJECT_ID}/products/ \
+  -XPOST -H "Content-Type: application/json" \
+    -d '{"img_original_url": "http://example.com/path/to/image.jpg", "data": {"my_product_id": 123, "product_name": "Koval Winery Cabernet Sauvignon 2018"}'
+```
+Response:
+```json
+{
+    "id": 76,
+    "created": "2021-12-18T01:18:39.861166Z",
+    "updated": "2021-12-18T01:18:39.866024Z",
+    "status": "pending",
+    "data": {
+        "my_product_id": 123,
+        "product_name": "Koval Winery Cabernet Sauvignon 2018"
+    },
+    "img_original": {
+      "id": 661,
+      "created": "2021-12-18T01:18:39.837331Z",
+      "updated": "2021-12-18T01:18:39.851924Z",
+      "full_url": "https://perfect-label-uploads.s3.amazonaws.com/images/78d75b31-40f0-406f-8283-2afc065fbbd1.jpg"
+    }
+}
+```
+
 
 ### List Products
 ```bash
