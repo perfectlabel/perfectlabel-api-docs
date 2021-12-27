@@ -103,6 +103,18 @@ $ export PROJECT_ID=<YOUR_PROJECT_ID>
 $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/projects/${PROJECT_ID}/products/?status=complete&product_fields=id,status,data
 ```
 
+### Filter Products by Creation Date
+
+It's possible to filter products by creation datetime, which is in ISO-8601 format:
+* `created_after` - products added to system after a specific time point
+* `created_before` - products added before a specific time point
+
+```bash
+$ export AUTH_TOKEN=<YOUR_TOKEN_HERE>
+$ export PROJECT_ID=<YOUR_PROJECT_ID>
+$ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/projects/${PROJECT_ID}/products/?created_after=2021-01-01T15:05:00.00000Z&created_before=2021-01-01T15:25:00.00000Z&product_fields=id,status,data
+```
+
 ### Get Product by ID
 
 ```bash
