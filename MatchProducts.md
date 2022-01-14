@@ -138,5 +138,5 @@ $ curl -H "Authorization: Token ${AUTH_TOKEN}" -XDELETE https://perfectlabel.io/
 ```bash
 $ export CLIENT_TOKEN=<CLIENT_TOKEN>
 $ export PROJECT_ID=<YOUR_PROJECT_ID>
-$ curl -H "Authorization: Token ${CLIENT_TOKEN}" -X POST https://matcher.perfectlabel.io/api/v001/projects/${PROJECT_ID}/search/
+$ curl -H "Authorization: Token ${CLIENT_TOKEN}" -X POST https://matcher.perfectlabel.io/api/v001/projects/${PROJECT_ID}
 ```
