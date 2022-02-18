@@ -133,10 +133,22 @@ $ export PRODUCT_ID=<PRODUCT_ID>
 $ curl -H "Authorization: Token ${AUTH_TOKEN}" -XDELETE https://perfectlabel.io/api/v001/projects/${PROJECT_ID}/products/${PRODUCT_ID}/
 ```
 
-## Search Products By Image
+## Search Products By Base64-Encoded Image
 
+Only JPEG format is accepted.
 ```bash
 $ export CLIENT_TOKEN=<CLIENT_TOKEN>
 $ export PROJECT_ID=<YOUR_PROJECT_ID>
-$ curl -H "Authorization: Token ${CLIENT_TOKEN}" -X POST https://matcher.perfectlabel.io/api/v001/projects/${PROJECT_ID}
+$ curl -H "Authorization: Token ${CLIENT_TOKEN}" -X POST https://matcher.perfectlabel.io/api/v001/projects/${PROJECT_ID} \
+  -d '{"image_base64": "<BASE64 ENCODED IMAGE>"}'
+```
+
+## Search Products By Image URL
+
+This method is convenient for testing - for realtime recognition it's much better to use base64
+```bash
+$ export CLIENT_TOKEN=<CLIENT_TOKEN>
+$ export PROJECT_ID=<YOUR_PROJECT_ID>
+$ curl -H "Authorization: Token ${CLIENT_TOKEN}" -X POST https://matcher.perfectlabel.io/api/v001/projects/${PROJECT_ID} \
+  -d '{"image_url": "https://example.com/path/to/image.jpg"}'
 ```
