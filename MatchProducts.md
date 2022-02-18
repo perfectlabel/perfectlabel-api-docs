@@ -79,6 +79,17 @@ Response:
 }
 ```
 
+#### Unwrap Classifier During Product Creation
+The product images by default are being processed by a special classifier, trying to figure out if
+the image is already unwrapped or cropped. If the classifier detected the unwrapped image, it will
+skip the unwrapper step. But there is a way to bypass the classifier and specify the unwrapper
+option manually. It's useful if the image kind is known (which can reduce the chance of the
+classifier error).
+There is an additional parameter in add products endpoint - "uwnrap_action", which takes one of
+the following values:
+* `auto` (default) - use the classifier to detect if unwrapping is required
+* `skip` - do not unwrap the image, since it's already unwrapped or cropped
+* `unwrap` - force unwrap the image
 
 ### List Products
 ```bash
