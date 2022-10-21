@@ -135,6 +135,17 @@ $ export PRODUCT_ID=<PRODUCT_ID>
 $ curl -H "Authorization: Token ${AUTH_TOKEN}" https://perfectlabel.io/api/v001/projects/${PROJECT_ID}/products/${PRODUCT_ID}/?product_fields=id,status,data
 ```
 
+### Update Product Metadata
+If it's required to update the product metadata, use PATCH request to update the "data" attribute.
+Let's say, the new metadata needs to be set to `{"id": 12345}`, see the request below:
+
+```bash
+$ export AUTH_TOKEN=<YOUR_TOKEN_HERE>
+$ export PROJECT_ID=<YOUR_PROJECT_ID>
+$ export PRODUCT_ID=<PRODUCT_ID>
+$ curl -H "Authorization: Token ${AUTH_TOKEN}" -X POST https://perfectlabel.io/api/v001/projects/${PROJECT_ID}/products/${PRODUCT_ID}/ \
+  -d '{"data": {"id": 12345}}'
+```
 
 ### Delete Product
 ```bash
